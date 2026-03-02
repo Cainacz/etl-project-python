@@ -37,7 +37,7 @@ def transform_sales(df: pd.DataFrame) -> pd.DataFrame:
   
     invalid_datetime = df["sale_datetime"].isna()
     if invalid_datetime.any():
-        print(f"Aviso: {invalid_datetime.sum()} linhas com data/hora inválida → serão removidas")
+        print(f"{invalid_datetime.sum()} lines with invalid date/hour will be removed")
         df = df[~invalid_datetime]
 
     numeric_cols = ["quantity", "unit_price", "cogs", "tax_5_percent", "total", "customer_rating"]
@@ -54,5 +54,5 @@ def transform_sales(df: pd.DataFrame) -> pd.DataFrame:
         if col in df.columns:
             df[col] = df[col].str.strip().str.title()
 
-    print("Colunas após transform:", df.columns.tolist())
+    print("Columns after transforming", df.columns.tolist())
     return df

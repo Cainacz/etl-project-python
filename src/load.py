@@ -82,12 +82,19 @@ def load_to_sqlite(df_clean: pd.DataFrame, db_path: str):
 
     missing = df_db[df_db[["product_id", "branch_id"]].isna().any(axis=1)]
     if not missing.empty:
-        print(f"Atenção: {len(missing)} linhas sem product_id ou branch_id → serão ignoradas")
+        print(f"{len(missing)} lines without product_id or branch_id will be ignored")
         df_db = df_db[["product_id", "branch_id"]].dropna()
+
+
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    cursor.execute("DELETE FROM sales")
+    conn.commit() 
 
     conn = sqlite3.connect(db_path)
     df_db.to_sql("sales", conn, if_exists="append", index=False)
     conn.close()
 
-    print(f"Carregadas {len(df_db)} vendas na tabela sales.")
+    print(f"Loaded {len(df_db)} sales on the table sales.")
 

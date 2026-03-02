@@ -1,19 +1,24 @@
-
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
-pip-log.txt
-pip-delete-this-directory.txt
+.pip/
+.cache/
+*.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
 
 venv/
 env/
 .venv/
 ENV/
 
+
 .ipynb_checkpoints/
 *.ipynb_checkpoints/
+
 
 data/database/*.db
 data/database/sales.db
@@ -21,20 +26,42 @@ data/database/sales.db
 *.sqlite
 *.sqlite3
 
+
+
 *.egg-info/
 dist/
 build/
 *.egg
+
 
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
 
-.DS_Store          # macOS
-Thumbs.db          # Windows
-ehthumbs.db        # Windows
-desktop.ini        # Windows
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.one
+*.~lock.*
+~*
+*.tmp
+*.temp
+*.lock
+*.bak
+*.swp
+*.old
+*.orig
+*.backup
+
+
+*.dockerignore
+docker-compose.override.yml
+Dockerfile.dev
+*.dockerfile
+
 
 .env
 .env.local
@@ -44,8 +71,11 @@ credentials.json
 secrets.*
 api_key.txt
 
-*.bak
-*.swp
-*.tmp
-*.temp
-*~
+
+*.parquet
+*.feather
+*.hdf5
+*.h5
+*.joblib
+*.pkl
+*.pickle

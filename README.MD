@@ -84,3 +84,14 @@ SQLite3 & SQL – database modeling and querying
 ## Objective
 
 The project demonstrates  a complete data pipeline, from raw CSV extraction to structured data loading and analytical insights, providing a practical example of sales analytics.
+
+## Commands / How to use
+
+|               |               |
+| ------------- |:-------------:|
+| Install dependencies      | `pip install -r requirements.txt`     |
+| Run pipeline      | `python src/main.py`     |
+| Open Jupyter Notebook      | `jupyter notebook notebooks/`    |
+| Run with Docker      | `docker compose up`     |
+| Run with Docker (pipeline only)      | `docker compose up pipeline`     |
+| Run with Docker (Jupyter only)     | `docker compose up jupyter`     |
